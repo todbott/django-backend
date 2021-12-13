@@ -1,0 +1,103 @@
+{% comment %}
+Copyright 2021 Google LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+{% endcomment %}
+
+{% load static %}
+
+{% load bootstrap5 %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% bootstrap_messages %}
+
+<head>
+    <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+    
+            $('.logoutButton').click(function () {
+                
+            })    
+        })
+    </script>
+</head>
+
+<div class="container">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <div class="text-center">
+            <span style="font-size: 18pt">螢出版情報管理システム</span>
+            </div>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row" style="padding: 20px;">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <div class="text-center">
+                <form method="get" action="/">
+                    <button id="logoutButton" type="submit" class="btn btn-secondary" size="lg" style="margin: 10px; padding: 10px;">ログアウト</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <div class="text-center">
+                <span style="color: green; font-weight: bolder;">ようこそ　{{ question }}</b>
+            </div>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row" style="padding: 20px;">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <div class="text-center">
+            <span style="font-size: 12pt">校正・校了情報は下記のとおりです</span>
+            </div>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    {% if latest_question_list %}
+    <div class="row" style="padding: 20px;">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <div class="text-center">
+                <ul>
+                    {% for question in latest_question_list %}
+                        <li>{{ question.question_text }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    {% endif %}
+</div>
+
+
+
+
+
+
+
+
+
+
